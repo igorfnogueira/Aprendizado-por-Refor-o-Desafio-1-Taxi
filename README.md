@@ -44,4 +44,5 @@ No preview do GitHub, a seção **5.2** do notebook mostra os GIFs inline e link
 
 ## Repositório
 
-https://github.com/igorfnogueira/Aprendizado-por-Refor-o-Desafio-1---Taxi
+https://github.com/igorfnogueira/Aprendizado-por-Refor-o-Desafio-1-Taxi
+
