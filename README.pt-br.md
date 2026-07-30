@@ -54,4 +54,4 @@ No preview do GitHub, a seção **5.2** mostra os GIFs inline e links para os MP
 
 ## Repositório
 
-https://github.com/igorfnogueira/Aprendizado-por-Refor-o-Desafio-1-Taxi
+https://github.com/igorfnogueira/rl-python-taxi-agent

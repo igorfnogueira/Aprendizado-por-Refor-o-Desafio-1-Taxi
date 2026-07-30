@@ -54,4 +54,4 @@ On GitHub’s notebook preview, section **5.2** shows the GIFs inline and links 
 
 ## Repository
 
-https://github.com/igorfnogueira/Aprendizado-por-Refor-o-Desafio-1-Taxi
+https://github.com/igorfnogueira/rl-python-taxi-agent
