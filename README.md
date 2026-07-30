@@ -1,26 +1,30 @@
-# Aprendizado por Reforço — Desafio 1: Taxi
+# Reinforcement Learning — Challenge 1: Taxi
 
-Residência em Inteligência Artificial · unidade de **Aprendizado por Reforço**.
+**Language / Idioma:** [English](README.md) | [Português](README.pt-br.md)
 
-Desafio de **planejamento com modelo** no ambiente [Taxi](https://gymnasium.farama.org/environments/toy_text/taxi/) (`Taxi-v3`, com fallback para `Taxi-v4` no Gymnasium recente).
+AI Residency · **Reinforcement Learning** course unit.
 
-## O que este projeto faz
+Model-based planning challenge on the [Taxi](https://gymnasium.farama.org/environments/toy_text/taxi/) environment (`Taxi-v3`, with fallback to `Taxi-v4` on recent Gymnasium).
 
-Implementação do zero de:
+## What this project does
+
+From-scratch implementation of:
 
 - **Value Iteration**
 - **Policy Iteration**
 
-Usando o modelo de transição `env.P` (programação dinâmica). O notebook também compara eficiência (tempo / iterações) e o impacto do fator de desconto `gamma` na policy e no retorno.
+using the transition model `env.P` (dynamic programming). The notebook compares efficiency (runtime / iterations) and the effect of the discount factor `gamma` on the policy and return.
 
-## Arquivo principal
+The Taxi task has **500 discrete states**. The agent must pick up a passenger and drop them off at the correct destination (`+20`), while avoiding illegal pickup/drop-off (`-10`) and paying `-1` per step.
 
-- [RL_Desafio_Taxi_VI_PI.ipynb](RL_Desafio_Taxi_VI_PI.ipynb) — código, experimentos e visualizações
+## Main file
 
-## Como rodar
+- [RL_Desafio_Taxi_VI_PI.ipynb](RL_Desafio_Taxi_VI_PI.ipynb) — algorithms, experiments, Q/policy plots, and episode rollouts
 
-1. Use **Python 3.11 ou 3.12** (recomendado; evite 3.14).
-2. Crie um ambiente virtual e instale as dependências:
+## How to run
+
+1. Use **Python 3.11 or 3.12** (recommended; avoid 3.14).
+2. Create a virtual environment and install dependencies:
 
 ```bash
 python -m venv .venv
@@ -29,20 +33,25 @@ python -m venv .venv
 pip install gymnasium numpy matplotlib seaborn moviepy pillow ipykernel
 ```
 
-3. Abra o notebook no Jupyter / VS Code / Cursor e execute as células na ordem.
+3. Open the notebook in Jupyter / VS Code / Cursor and run the cells in order.
 
-## Artefatos de episódio
+## Episode artifacts
 
-Após a seção de comparação por `gamma`, o notebook gera:
+After the per-`gamma` comparison section, the notebook generates:
 
 - `taxi_gamma_0.1.gif` / `.mp4`
 - `taxi_gamma_0.5.gif` / `.mp4`
 - `taxi_gamma_0.9.gif` / `.mp4`
 - `taxi_gamma_0.99.gif` / `.mp4`
 
-No preview do GitHub, a seção **5.2** do notebook mostra os GIFs inline e links para os MP4s.
+On GitHub’s notebook preview, section **5.2** shows the GIFs inline and links to the MP4s. Section **6** shows the final policy (`gamma=0.99`) the same way.
 
-## Repositório
+## Key takeaways
+
+1. **Performance:** Value Iteration and Policy Iteration reach the **same optimal policy**. Policy Iteration uses few outer iterations (policy stabilizes early) but each outer step is expensive; Value Iteration uses cheaper sweeps and more of them. Both are fast at 500 states.
+2. **Myopic behavior (`γ = 0.1`):** With a very small discount, the distant `+20` delivery reward is nearly zeroed out, so the agent fails to chain pickup → transport → drop-off. Reliable success needs high `γ` (`0.9`, `0.99`).
+3. **Theory:** Both solve the same Bellman optimality equation and converge to the same `V*` / `π*` for `γ < 1`. Identical policies are expected, not a coincidence.
+
+## Repository
 
 https://github.com/igorfnogueira/Aprendizado-por-Refor-o-Desafio-1-Taxi
-
